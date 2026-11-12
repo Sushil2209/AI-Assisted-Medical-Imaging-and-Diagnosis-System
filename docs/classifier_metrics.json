@@ -1,0 +1,20 @@
+{
+  "auc": 0.8872561672759878,
+  "sensitivity": 0.8281596452328159,
+  "specificity": 0.7836181876813931,
+  "confusion_matrix": [
+    [
+      2430,
+      671
+    ],
+    [
+      155,
+      747
+    ]
+  ],
+  "threshold": 0.5,
+  "best_epoch": 3,
+  "val_auc": 0.8837468208166882,
+  "n_test": 4003,
+  "debug": false
+}

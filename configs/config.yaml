@@ -1,0 +1,27 @@
+seed: 42
+
+paths:
+  rsna_images: data/raw/rsna/Training/Images
+  rsna_meta: data/raw/rsna/stage2_train_metadata.csv
+  splits: data/splits
+  msd_root: data/raw/msd/Task09_Spleen
+  checkpoints: models_ckpt
+
+classification:
+  image_size: 224
+  batch_size: 16
+  epochs: 10
+  lr: 0.0001
+  weight_decay: 0.01
+  num_workers: 2
+  threshold: 0.5
+  rotation_degrees: 10
+  brightness: 0.1
+  contrast: 0.1
+
+segmentation:
+  patch_size: [96, 96, 96]
+  pixdim: [1.5, 1.5, 2.0]
+  batch_size: 2
+  epochs: 50
+  lr: 0.0001

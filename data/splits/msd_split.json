@@ -1,0 +1,172 @@
+{
+  "train": [
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_20.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_20.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_14.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_14.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_21.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_21.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_61.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_61.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_44.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_44.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_41.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_41.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_52.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_52.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_22.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_22.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_16.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_16.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_56.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_56.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_33.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_33.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_47.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_47.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_40.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_40.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_3.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_3.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_24.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_24.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_6.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_6.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_60.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_60.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_45.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_45.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_25.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_25.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_38.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_38.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_32.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_32.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_53.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_53.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_62.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_62.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_49.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_49.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_31.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_31.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_28.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_28.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_8.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_8.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_59.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_59.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_13.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_13.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_10.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_10.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_63.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_63.nii"
+    }
+  ],
+  "val": [
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_46.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_46.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_17.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_17.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_18.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_18.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_2.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_2.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_26.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_26.nii"
+    }
+  ],
+  "test": [
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_27.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_27.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_29.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_29.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_12.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_12.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_19.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_19.nii"
+    },
+    {
+      "image": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\imagesTr\\spleen_9.nii",
+      "label": "C:\\AI-Assisted Medical Imaging and Diagnosis System\\data\\raw\\msd\\Task09_Spleen\\labelsTr\\spleen_9.nii"
+    }
+  ]
+}

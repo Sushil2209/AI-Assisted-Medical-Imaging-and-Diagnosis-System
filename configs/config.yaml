@@ -19,6 +19,10 @@ classification:
   brightness: 0.1
   contrast: 0.1
 
+orthanc:
+  url: http://localhost:8042
+  timeout: 30
+
 segmentation:
   patch_size: [96, 96, 96]
   pixdim: [1.5, 1.5, 2.0]

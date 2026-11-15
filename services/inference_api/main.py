@@ -2,6 +2,7 @@
 
 For education only, not for clinical use.
 """
+import base64
 import io
 import sys
 from contextlib import asynccontextmanager
@@ -18,7 +19,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from src.data.rsna_dataset import build_transform  # noqa: E402
-from src.explain.gradcam import load_model  # noqa: E402
+from src.explain.gradcam import explain, load_model  # noqa: E402
 
 DISCLAIMER = "For education only, not for clinical use"
 CLASSES = ["No pneumonia", "Pneumonia"]
@@ -70,17 +71,24 @@ def dicom_to_image(data):
     if int(ds.get("NumberOfFrames", 1) or 1) > 1:
         raise HTTPException(422, "Unsupported DICOM image: multi-frame images are not supported")
     try:
-        pixels = ds.pixel_array.astype(np.float32)
+        raw = ds.pixel_array
     except Exception:
         raise HTTPException(422, "Could not decode DICOM pixel data")
-    if pixels.ndim != 2:
+    if raw.ndim != 2:
         raise HTTPException(422, "Unsupported DICOM image: expected a single 2D grayscale frame")
-    # Convert stored values to modality values when rescale tags are present
-    pixels = pixels * float(ds.get("RescaleSlope", 1)) + float(ds.get("RescaleIntercept", 0))
-    if photometric == "MONOCHROME1":
-        pixels = pixels.max() - pixels  # MONOCHROME1: low values are bright, so invert
-    pixels = (pixels - pixels.min()) / max(float(pixels.max() - pixels.min()), 1e-6)
-    return Image.fromarray((pixels * 255).astype(np.uint8)).convert("RGB")
+    slope = float(ds.get("RescaleSlope", 1))
+    intercept = float(ds.get("RescaleIntercept", 0))
+    if ds.get("BitsAllocated") == 8 and raw.dtype == np.uint8 and slope == 1 and intercept == 0:
+        # 8-bit without rescale: keep values exactly (no normalization)
+        pixels = 255 - raw if photometric == "MONOCHROME1" else raw
+    else:
+        pixels = raw.astype(np.float64) * slope + intercept
+        if photometric == "MONOCHROME1":
+            pixels = pixels.max() - pixels  # MONOCHROME1: low values are bright, so invert
+        span = pixels.max() - pixels.min()
+        pixels = (pixels - pixels.min()) / span * 255 if span > 0 else np.zeros_like(pixels)
+        pixels = np.clip(np.rint(pixels), 0, 255).astype(np.uint8)
+    return Image.fromarray(pixels).convert("RGB")
 
 
 @app.get("/health")
@@ -106,16 +114,28 @@ def list_studies():
 
 
 @app.post("/predict/{instance_id}")
-def predict(instance_id: str):
+def predict(instance_id: str, gradcam: bool = False):
     image = dicom_to_image(orthanc_get(f"/instances/{instance_id}/file").content)
-    x = build_transform(CLS["image_size"])(image).unsqueeze(0)
-    with torch.no_grad():
-        prob = torch.sigmoid(state["model"](x)).item()
+    if gradcam:
+        try:
+            prob, overlay = explain(state["model"], image, CLS["image_size"], "cpu")
+            buf = io.BytesIO()
+            Image.fromarray(overlay).save(buf, format="PNG")
+            gradcam_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+        except Exception:
+            raise HTTPException(500, "Grad-CAM generation failed")
+    else:
+        x = build_transform(CLS["image_size"])(image).unsqueeze(0)
+        with torch.no_grad():
+            prob = torch.sigmoid(state["model"](x)).item()
     label = int(prob >= CLS["threshold"])
-    return {
+    response = {
         "instance_id": instance_id,
         "predicted_class": CLASSES[label],
         "pneumonia_probability": round(prob, 4),
         "threshold": CLS["threshold"],
         "disclaimer": DISCLAIMER,
     }
+    if gradcam:
+        response["gradcam_png_base64"] = gradcam_b64
+    return response

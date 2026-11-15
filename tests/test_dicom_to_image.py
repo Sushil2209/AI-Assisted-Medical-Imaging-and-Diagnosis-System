@@ -16,8 +16,8 @@ from services.inference_api import main  # noqa: E402
 ROWS, COLS = 4, 6
 
 
-def make_dicom(pixels, photometric="MONOCHROME2", frames=None, **tags):
-    """Build a small synthetic 16-bit DICOM and return its bytes."""
+def make_dicom(pixels, photometric="MONOCHROME2", frames=None, bits=16, **tags):
+    """Build a small synthetic 8- or 16-bit DICOM and return its bytes."""
     meta = FileMetaDataset()
     meta.MediaStorageSOPClassUID = SecondaryCaptureImageStorage
     meta.MediaStorageSOPInstanceUID = generate_uid()
@@ -26,14 +26,14 @@ def make_dicom(pixels, photometric="MONOCHROME2", frames=None, **tags):
     ds.PhotometricInterpretation = photometric
     ds.SamplesPerPixel = 1
     ds.Rows, ds.Columns = ROWS, COLS
-    ds.BitsAllocated = ds.BitsStored = 16
-    ds.HighBit = 15
+    ds.BitsAllocated = ds.BitsStored = bits
+    ds.HighBit = bits - 1
     ds.PixelRepresentation = 0
     if frames:
         ds.NumberOfFrames = frames
     for k, v in tags.items():
         setattr(ds, k, v)
-    ds.PixelData = pixels.astype(np.uint16).tobytes()
+    ds.PixelData = pixels.astype(np.uint8 if bits == 8 else np.uint16).tobytes()
     buf = io.BytesIO()
     ds.save_as(buf)
     return buf.getvalue()
@@ -65,6 +65,64 @@ def test_rescale_slope_and_intercept_applied():
     img = main.dicom_to_image(make_dicom(gradient(), RescaleSlope=-1, RescaleIntercept=1000))
     arr = np.array(img)
     assert arr[0, 0, 0] == 255 and arr[-1, -1, 0] == 0
+
+
+def gray8():
+    # Narrow value range: min-max normalization would change these values
+    return (np.arange(ROWS * COLS).reshape(ROWS, COLS) + 50).astype(np.uint8)
+
+
+def test_8bit_monochrome2_pixels_preserved_exactly():
+    arr = np.array(main.dicom_to_image(make_dicom(gray8(), bits=8)))
+    assert np.array_equal(arr[..., 0], gray8())
+    assert np.array_equal(arr[..., 0], arr[..., 2])
+
+
+def test_8bit_monochrome1_exact_inversion():
+    arr = np.array(main.dicom_to_image(make_dicom(gray8(), photometric="MONOCHROME1", bits=8)))
+    assert np.array_equal(arr[..., 0], 255 - gray8())
+
+
+def test_8bit_identity_rescale_tags_preserved():
+    data = make_dicom(gray8(), bits=8, RescaleSlope=1, RescaleIntercept=0)
+    assert np.array_equal(np.array(main.dicom_to_image(data))[..., 0], gray8())
+
+
+def test_8bit_non_identity_rescale_is_normalized():
+    # Slope 2 doubles the range; result is min-max scaled to the full 0-255 range
+    arr = np.array(main.dicom_to_image(make_dicom(gray8(), bits=8, RescaleSlope=2, RescaleIntercept=10)))[..., 0]
+    expected = np.rint((gray8() - 50) / (ROWS * COLS - 1) * 255).astype(np.uint8)
+    assert np.array_equal(arr, expected)
+
+
+def test_16bit_monochrome2_exact_values():
+    expected = np.rint(np.arange(ROWS * COLS) / (ROWS * COLS - 1) * 255).astype(np.uint8).reshape(ROWS, COLS)
+    arr = np.array(main.dicom_to_image(make_dicom(gradient())))[..., 0]
+    assert np.array_equal(arr, expected)
+
+
+def test_16bit_monochrome1_exact_values():
+    expected = np.rint(np.arange(ROWS * COLS) / (ROWS * COLS - 1) * 255).astype(np.uint8).reshape(ROWS, COLS)
+    arr = np.array(main.dicom_to_image(make_dicom(gradient(), photometric="MONOCHROME1")))[..., 0]
+    assert np.array_equal(arr, 255 - expected)
+
+
+def test_rescale_negative_slope_exact_values():
+    expected = np.rint(np.arange(ROWS * COLS) / (ROWS * COLS - 1) * 255).astype(np.uint8).reshape(ROWS, COLS)
+    arr = np.array(main.dicom_to_image(make_dicom(gradient(), RescaleSlope=-1, RescaleIntercept=1000)))[..., 0]
+    assert np.array_equal(arr, 255 - expected)
+
+
+def test_16bit_large_values_no_overflow():
+    pixels = np.full((ROWS, COLS), 65535)
+    pixels[0, 0] = 0
+    arr = np.array(main.dicom_to_image(make_dicom(pixels)))[..., 0]
+    assert arr[0, 0] == 0 and (arr.ravel()[1:] == 255).all()
+
+
+def test_constant_image_does_not_fail():
+    arr = np.array(main.dicom_to_image(make_dicom(np.full((ROWS, COLS), 500))))[..., 0]
+    assert (arr == 0).all()
 
 
 def test_unsupported_photometric_rejected():

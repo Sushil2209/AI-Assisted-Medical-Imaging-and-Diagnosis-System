@@ -1,0 +1,6 @@
+outs:
+- md5: 4184933b158072db71e6f58d8883daeb.dir
+  size: 6490201196
+  nfiles: 103
+  hash: md5
+  path: msd
